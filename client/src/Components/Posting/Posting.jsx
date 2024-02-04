@@ -6,25 +6,27 @@ import { FaRegComments } from 'react-icons/fa';
 import { IoIosShare } from 'react-icons/io';
 import { useSelector } from 'react-redux';
 import { likePost } from '../../Api/PostRequest';
-
-
+import myPost from '../../images/cover.png'; // Import myPost image correctly
+import myPost2 from '../../images/cover.jpg'; // Import myPost
 const Posting = ({ data }) => {
   const { user } = useSelector((state) => state.AuthReducer.authData);
 
- const [liked,setLiked]=useState(data.likes.includes(user._id))
- const[likes,setLikes]=useState(data.likes.length)
+  const [liked, setLiked] = useState(data.likes.includes(user._id));
+  const [likes, setLikes] = useState(data.likes.length);
 
-  const handleLike =() =>{
-    setLiked((prev)=>!prev)
-    likePost(data._id,user._id)
-    liked?setLikes((prev)=>prev -1):setLikes((prev)=>prev + 1)
-  }
+  const handleLike = () => {
+    setLiked((prev) => !prev);
+    likePost(data._id, user._id);
+    liked ? setLikes((prev) => prev - 1) : setLikes((prev) => prev + 1);
+  };
 
   return (
     <div className="Posting">
-      <img src={ data.image ? import.meta.env.VITE_APP_PUBLIC_FOLDER + data.image : ""} alt='post Image' />
+      <img src={myPost} alt='My Post' /> {/* Use the imported image here */}
+      <img src={data.image ? import.meta.env.VITE_APP_PUBLIC_FOLDER + data.image : ""} alt='post Image' />
+      <img src={myPost2} alt='My Post' />
       <div className="postreaction">
-        <img src={liked ? Heart : NotLike} alt="Like Icon" style={{cursor:"pointer"}} onClick={handleLike} />
+        <img src={liked ? Heart : NotLike} alt="Like Icon" style={{ cursor: "pointer" }} onClick={handleLike} />
         <FaRegComments size={28} color='#4cc9f0' />
         <IoIosShare size={28} color='#ffbf69' />
       </div>

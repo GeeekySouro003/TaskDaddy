@@ -64,17 +64,20 @@ const InformationCard = () => {
 
       <div className="info">
         <span><b>Recent Work: </b></span>
-        <span>{profileUser.workplace}</span>
+       {/* <span>{profileUser.workplace}</span> */}
+       <span>Video Editing</span>
       </div>
 
       <div className="info">
         <span><b>Resides at: </b></span>
-        <span>{profileUser.livesin}</span>
+      {/*  <span>{profileUser.livesin}</span> */}
+           <span>Bangalore</span>
       </div>
 
       <div className="info">
         <span><b>Specializes in: </b></span>
-        <span>{profileUser.specializes}</span>
+        {/* <span>{profileUser.specializes}</span> */}
+        <span>Video Shooting</span>
       </div>
 
       <button className="Btn" onClick={handleLogOut} >
