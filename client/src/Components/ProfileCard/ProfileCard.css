@@ -1,0 +1,138 @@
+.ProfileCard{
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 1rem;
+    overflow-x: clip;
+    top: 1rem;
+    background: var(--cardColor);
+    
+
+}
+
+.ProfileImg{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ProfileImg>img:nth-of-type(1) {
+    width: 100%;
+}
+.ProfileImg>img:nth-of-type(2) {
+    width: 5rem;
+    border-radius: 35%;
+    position: absolute;
+    bottom: -2.8rem;
+    box-shadow: var(--profileShadow);
+}
+
+.ProfileName{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 6px;
+}
+
+.ProfileName>span:nth-of-type(1){
+    font-weight: 800;
+    font-family: 'Poppins';
+}
+
+.follow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.follow>hr{
+    width: 87%;
+    border: 1.5px solid rgb(58, 55, 55);
+}
+
+.follow>div{
+    display: flex;
+    gap: 1.4rem;
+    width: 70%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.followers{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.followers>span:nth-of-type(1)
+{
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.followers>span:nth-of-type(2)
+{
+font-size: 13px;
+font-weight: 800;
+color: var(--gray);
+
+
+}
+
+.following{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+
+}
+.following>span:nth-of-type(1)
+{
+    font-weight: 900;
+}
+.following>span:nth-of-type(2)
+{
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--gray);
+}
+.post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+.post>span:nth-of-type(1)
+{
+    font-weight: 900;
+    font-size: 18px;
+}
+.post>span:nth-of-type(2){
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--gray);
+}
+
+.vl {
+    height: 150%;
+    border-left: 2px solid var(--hrColor);
+  }
+
+  .ProfileCard>span{
+    font-weight: bold;
+    color: violet;
+    align-self: center;
+    margin-bottom: 1.2rem;
+    cursor: pointer;
+
+}
+
