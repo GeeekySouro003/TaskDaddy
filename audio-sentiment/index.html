@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Sentiment Analysis</title>
+</head>
+<body>
+    <h1>Audio Sentiment Analysis</h1>
+    <button id="startButton">Start Analysis</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('startButton').addEventListener('click', async () => {
+            const recognition = new webkitSpeechRecognition();
+            recognition.lang = 'en-US';
+            recognition.start();
+
+            recognition.onresult = async (event) => {
+                const audio_data = event.results[0][0].transcript;
+
+                const response = await fetch('/analyze_audio', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ audio_data }),
+                });
+
+                const result = await response.json();
+                document.getElementById('result').innerHTML = `
+                    <p>Sentiment: ${result.sentiment}</p>
+                    <p>Confidence: ${result.confidence}</p>
+                `;
+            };
+
+            recognition.onerror = (event) => {
+                console.error('Error:', event.error);
+            };
+
+            recognition.onend = () => {
+                console.log('Recognition ended');
+            };
+        });
+    </script>
+</body>
+</html>
